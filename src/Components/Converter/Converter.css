@@ -1,0 +1,26 @@
+
+
+.Cleo-app-converter-container {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    width: 400px;
+    margin-top: -50px;
+    background-color: #ffff;
+    padding: 36px 30px;
+}
+
+.container-bottom-separation-s {
+    margin-bottom: 8px;
+}
+
+.container-bottom-separation-m {
+    margin-bottom: 12px;
+}
+
+.container-bottom-separation-l {
+    margin-bottom: 14px;
+}
+
+.container-bottom-separation-xl {
+    margin-bottom: 16px;
+}
