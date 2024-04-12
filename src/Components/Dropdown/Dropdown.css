@@ -1,0 +1,20 @@
+/* Container styles, shared with the input component */
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Label styles, shared with the input component */
+  .styled-label {
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  
+  /* Select input styles */
+  .styled-select {
+    padding: 16px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background-color: white;  /* Ensuring the background is white */
+
+  }
