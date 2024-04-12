@@ -1,0 +1,9 @@
+#cleo-app-header {
+    height: 280px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #341cff;
+    color: #ffffff;
+}
