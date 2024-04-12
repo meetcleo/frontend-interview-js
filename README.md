@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# Cleo Frontend Interview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+We'll be pairing on a React application that allows users to convert currencies from one unit to another, based on a selection. The application itself has already been started by another team and our goal would be to:
 
-In the project directory, you can run:
+1. Work on some features/enhancements/bugs together as per the requirements documented on the [project board](https://github.com/meetcleo/frontend-interview/projects/1), from both a functional and UX perspective
+2. Add tests for features and functionality we add
+3. Fix any bugs we come across
 
-### `yarn start`
+The teams project manager has set up a project board for us to track various features/enhancements/bugs, which can be found [HERE](https://github.com/meetcleo/frontend-interview/projects/1).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Each card on the project board has information about it's requirements, so take a moment to familiarise yourself with them and feel free to ask questions. Our goal is to work through the cards on that project board together in whichever order you feel works best, however they have been put in a rough logical order already.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+We have also been provided a design (expand below) to reference during our development. We should aim to stay close to this, but we have freedom to change things where improvements to the UX would be gained.
 
-### `yarn test`
+<details>
+  <summary>UI design reference</summary>
+  
+  ![alt text](https://github.com/meetcleo/frontend-interview-js/blob/main/ui-design.jpg?raw=true "UI design reference")
+</details>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It's important to note that whilst there may be bugs on that project board, not all may have been reported yet. As such, we can look to fix anything we find during our session.
 
-### `yarn build`
+## Getting started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is a React application and as such, you'll need to have installed on your machine a few dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Node.js (>=18.0.0)
+2. Git
+3. Yarn or NPM
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+With the above installed, you'll need to fork this Github repo locally to your machine. We also recommend you come prepared with your preferred IDE set up to your liking in order to allow us to start straight away.
 
-### `yarn eject`
+## Running the application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+There are various commands already available for you to run:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Start the dev server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Runs the local development server on port 3000.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```console
+$ yarn start
+```
 
-## Learn More
+### Run the API
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Runs the local API from a static database (currency values are not real time)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```console
+$ yarn api
+```
 
-### Code Splitting
+There are three endpoints made available for this task. Each is described bellow:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Currencies
 
-### Analyzing the Bundle Size
+Retrieve a list of all available currencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+GET - http://localhost:3002/currencies
+```
 
-### Making a Progressive Web App
+The currencies available as part of this test are:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```json
+{
+  "AUD": "Australian Dollar",
+  "CAD": "Canadian Dollar",
+  "CHF": "Swiss Franc",
+  "CNY": "Chinese Yuan",
+  "EUR": "Euro",
+  "GBP": "British Pound Sterling",
+  "RUB": "Russian Ruble",
+  "THB": "Thai Baht",
+  "USD": "United States Dollar"
+}
+```
 
-### Advanced Configuration
+#### Rates
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Retrieve a list of all available currencies with rates
 
-### Deployment
+```
+GET - http://localhost:3002/rates
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Retrieve a single currency and its rates
 
-### `yarn build` fails to minify
+```
+GET - http://localhost:3002/rates/{CURRENCY_CODE}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Convert
+
+Convert an amount from one currency to another
+
+```
+GET - http://localhost:3002/convert?from={CURRENCY_CODE}&to={CURRENCY_CODE}&amount={AMOUNT}
+```
+
+### Testing
+
+Runs tests via Jest and React Testing Library
+
+```console
+$ yarn test
+```
+
+## Notes
+
+- We are big fans of tested code
+- Be mindful of your code structure, you are completely free to make adjustments as you wish
+- We are about good vibes and working as a team to solve things
+- Remember to think out loud so you and your interviewers are aligned
+- Feel free to Google something if you're unsure during the session. Also remember you can ask your interviewers any questions you may have
+- We are not expecting to finish all the cards on the project board. We are more keen to see how you work, solve problems and communicate
